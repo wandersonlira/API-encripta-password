@@ -11,7 +11,7 @@ Consulte **[Implantação](#-implanta%C3%A7%C3%A3o)** para saber como implantar 
 ```
 Java 17
 IDE Eclipse
-Postman
+Postman ou Insonmia
 ```
 ### 🔧 Instalação
 #### Linux
@@ -38,10 +38,21 @@ git clone https://github.com/wandersonlira/API-encripta-password.git
 # descompacte o arquivo em caso .zip
 ```
 ## 📦 Implantação
-```bash
-# Importando no Eclipse
-File/Import/Maven/Existing Maven Projects *depois clique em Next, Browse para pesquisar o arquivo e por fim Finish*
+
+### :whale: Executando via Docker
+***Navegue até a pasta do projeto depois execute os seguintes comandos:***
+1. ***Gera imagem docker***
 ```
+docker build -t encrypta-password .
+```
+2. ***Executa o container na porta especificada e atribui nome `encrypta-password`.***
+  - *obs: `container` port:8080, `host` port:8082. Significa que a porta 8080 do container houve a porta 8082 do host.*
+```
+docker run -d --name encrypta-password -p 8082:8080 encrypta-password:latest
+```
+### Importando no Eclipse
+  - `File/Import/Maven/Existing Maven Projects` *depois clique em Next, Browse para pesquisar o arquivo e por fim Finish*
+
 ![tela2](https://github.com/wandersonlira/API-encripta-password/assets/128269826/17a4989c-94c7-4418-8337-77154eee2c3f)
 ![tela3](https://github.com/wandersonlira/API-encripta-password/assets/128269826/9a9bc05c-8265-4155-9a7a-73499602838c)
 
