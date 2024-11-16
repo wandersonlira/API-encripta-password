@@ -1,14 +1,56 @@
+#
+## DATASOURCE
+#spring.datasource.driverClassName=org.h2.Driver
+#spring.datasource.url=jdbc:h2:mem:testdb
+#spring.datasource.username=sa
+#spring.datasource.password=
+## H2 CLIENT
+#spring.h2.console.enabled=true
+#spring.h2.console.path=/h2-console
+## JPA, SQL
+#spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+#spring.jpa.defer-datasource-initialization=true
+#spring.jpa.show-sql=true
+#spring.jpa.properties.hibernate.format_sql=true
+
+security:
+  jwt:
+    token:
+      secret-key: 53cr37
+      expire-length: 180000
 
 # DATASOURCE
-spring.datasource.driverClassName=org.h2.Driver
-spring.datasource.url=jdbc:h2:mem:testdb
-spring.datasource.username=sa
-spring.datasource.password=
-# H2 CLIENT
-spring.h2.console.enabled=true
-spring.h2.console.path=/h2-console
-# JPA, SQL
-spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
-spring.jpa.defer-datasource-initialization=true
-spring.jpa.show-sql=true
-spring.jpa.properties.hibernate.format_sql=true
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/encrypta-password?useTimezone=true&serverTimezone=UTC
+    username: admin
+    password: admin123
+
+  flyway:
+    url: jdbc:mysql://localhost:3306/encrypta-password?useTimezone=true&serverTimezone=UTC
+    user: admin
+    password: admin123
+    baseline-on-migrate: true
+
+  profiles:
+    active: dev
+
+  # JPA, SQL
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+      show-sql: true
+
+# Swagger
+springdoc:
+  pathsToMatch:
+    - /auth/**
+    - /api/**/v1/**
+  swagger-ui:
+    user-root-path: true
+
+debug: true
