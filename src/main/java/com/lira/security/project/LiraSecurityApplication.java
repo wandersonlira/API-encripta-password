@@ -17,11 +17,11 @@ public class LiraSecurityApplication {
 	
 	
 	
-	@Bean
-	public PasswordEncoder getPasswordEncoder() {
-		BCryptPasswordEncoder geraEncoder = new BCryptPasswordEncoder();
-		return geraEncoder;
-	}
+//	@Bean
+//	public PasswordEncoder getPasswordEncoder() {
+//		BCryptPasswordEncoder geraEncoder = new BCryptPasswordEncoder();
+//		return geraEncoder;
+//	}
 	
 
 }

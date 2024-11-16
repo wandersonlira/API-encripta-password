@@ -3,6 +3,8 @@ package com.lira.security.project.model.entities;
 import java.io.Serializable;
 import java.util.Objects;
 
+import org.springframework.hateoas.RepresentationModel;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,8 +16,7 @@ import lombok.Data;
 
 @Data
 @Entity(name = "Usuario")
-
-public class UserEntity implements Serializable{
+public class CommonUser extends RepresentationModel<CommonUser> implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	
@@ -28,9 +29,9 @@ public class UserEntity implements Serializable{
 	
 	
 	
-	public UserEntity() {}
+	public CommonUser() {}
 	
-	public UserEntity(Long id, String login, String password) {
+	public CommonUser(Long id, String login, String password) {
 		super();
 		this.id = id;
 		this.login = login;
@@ -73,7 +74,7 @@ public class UserEntity implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		UserEntity other = (UserEntity) obj;
+		CommonUser other = (CommonUser) obj;
 		return Objects.equals(id, other.id) && Objects.equals(login, other.login);
 	}
 	

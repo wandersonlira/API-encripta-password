@@ -3,12 +3,13 @@ package com.lira.security.project.model.repositories;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import com.lira.security.project.model.entities.UserEntity;
+import com.lira.security.project.model.entities.CommonUser;
 
-
-public interface UserRepository extends JpaRepository<UserEntity, Long>{
+@Repository
+public interface UsuarioRepository extends JpaRepository<CommonUser, Long>{
 	
-	public Optional<UserEntity> findByLogin(String login);
+	public Optional<CommonUser> findByLogin(String login);
 
 }
